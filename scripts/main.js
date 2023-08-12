@@ -12,15 +12,15 @@ initGame();
 setInterval(gameTick, 1000 / GAME_CONFIG.fps);
 
 function initGame() {
-  // TODO: Init HTML view
+  // TODO: Реализовать начальный запуск и настройки игры
   const gameZoneEl = document.getElementById(GAME_CONFIG.gameZoneId);
 
   const gameZone = {
     width: gameZoneEl.getBoundingClientRect().width,
     height: gameZoneEl.getBoundingClientRect().height,
   };
-  
-  // TODO: Init Players, ask their names via alert for the begin, later using forms
+
+  // TODO: При создании игрока запросить его имя с помощью prompt, в дальнейшем красивой формы
   player1 = new Player(gameZoneEl, 50, 50, "", 120, "Игрок 1");
 
   player2 = new Player(
@@ -35,18 +35,17 @@ function initGame() {
 
 function gameTick() {
   frameNumber++;
-  
+
   // Запускаем пересчеты расположения
   player1.move(2, 1);
   player2.move(-3, 0);
 
-  
   // Перерисовывуем объекты на поле игры
   player1.redraw();
   player2.redraw();
 
   console.log(frameNumber, {
     player1,
-    player2
-  })
+    player2,
+  });
 }
