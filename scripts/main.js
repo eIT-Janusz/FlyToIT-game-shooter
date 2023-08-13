@@ -1,4 +1,5 @@
 import {Player} from "./drawModels/player.js";
+import {prepareKeys, handleKeysClicked} from "./keys.js";
 
 const GAME_CONFIG = {
   gameZoneId: "game-zone",
@@ -31,10 +32,14 @@ function initGame() {
     300,
     "Игрок 2"
   );
+
+  prepareKeys(player1, player2);
 }
 
 function gameTick() {
   frameNumber++;
+
+  handleKeysClicked();
 
   // Запускаем пересчеты расположения
   player1.move(2, 1);
@@ -47,5 +52,7 @@ function gameTick() {
   console.log(frameNumber, {
     player1,
     player2,
+    player1S: player1.speed,
+    player2S: player2.speed,
   });
 }
