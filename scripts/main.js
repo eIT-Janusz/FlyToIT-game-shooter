@@ -19,26 +19,38 @@ function initGame() {
     width: gameZoneEl.getBoundingClientRect().width,
     height: gameZoneEl.getBoundingClientRect().height,
   };
-
+  console.log(gameZone.height, gameZone.width);
   // TODO: При создании игрока запросить его имя с помощью prompt, в дальнейшем красивой формы
-  player1 = new Player(gameZoneEl, 50, 50, "", 120, "Игрок 1");
+  player1 = new Player(
+    gameZoneEl,
+    50,
+    gameZone.height - 50,
+    " ../../images/cowboyLookingRight.png",
+    120,
+    "first_player",
+    "Игрок 1"
+  );
 
   player2 = new Player(
     gameZoneEl,
     gameZone.width - 50,
-    gameZone.height - 50,
-    "",
+    50,
+    "../../images/cowboyLookingLeft.png",
     300,
+    "second_player",
     "Игрок 2"
   );
 }
-
+const firstPlayer = document.getElementById("first_player");
+const secondPlayer = document.getElementById("second_player");
+firstPlayer.classList.add("player");
+secondPlayer.classList.add("player");
 function gameTick() {
   frameNumber++;
 
   // Запускаем пересчеты расположения
-  player1.move(2, 1);
-  player2.move(-3, 0);
+  player1.move(3, -2);
+  player2.move(-3, 1);
 
   // Перерисовывуем объекты на поле игры
   player1.redraw();

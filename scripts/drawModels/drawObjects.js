@@ -1,3 +1,5 @@
+var gameZoneEl = document.getElementById("game-zone");
+
 export class DrawObject {
   /**
    * Общий объект который может быть размщенным в зоне игры
@@ -9,6 +11,7 @@ export class DrawObject {
    * @param {number} initialRotataion Направление объекта - градиус, 0 это вверх, 90 в право...
    * @param {number} initialSpeed Начальная скорость перемещения объекта
    * @param {number} maxSpeed Максимальная скорость перемещения объекта
+   * @param {number} elementId Id созданного объекта
    */
   constructor(
     gameZoneEl,
@@ -16,22 +19,23 @@ export class DrawObject {
     initialYPos,
     imageSrc,
     initialRotataion,
+    elementId,
     initialSpeed,
     maxSpeed
   ) {
     this.xPos = initialXPos;
     this.yPos = initialYPos;
     this.rotation = initialRotataion;
-    this.el = this.createHTMLElement(gameZoneEl, imageSrc);
-
+    this.el = this.createHTMLElement(gameZoneEl, imageSrc, elementId);
     this.speed = initialSpeed;
     this.maxSpeed = maxSpeed;
   }
 
   // TO BE IMPLEMENTED
-  createHTMLElement(gameZoneEl, imageSrc) {
+  createHTMLElement(gameZoneEl, imageSrc, elementId) {
     const el = document.createElement("img");
     el.src = imageSrc;
+    el.id = elementId;
     gameZoneEl.append(el);
     return el;
   }
@@ -43,7 +47,7 @@ export class DrawObject {
   }
 
   redraw() {
-    this.el.style.left = this.xPos;
-    this.el.style.bottom = this.yPos;
+    this.el.style.left = this.xPos + "px";
+    this.el.style.bottom = this.yPos + "px";
   }
 }

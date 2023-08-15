@@ -3,7 +3,6 @@ import {DrawObject} from "./drawObjects.js";
 const PLAYER_CONFIG = {
   initialSpeed: 20,
 };
-
 export class Player extends DrawObject {
   /**
    * Объект игрока
@@ -22,6 +21,7 @@ export class Player extends DrawObject {
     initialYPos,
     imageSrc,
     initialRotataion,
+    elementId,
     name
   ) {
     super(
@@ -30,6 +30,7 @@ export class Player extends DrawObject {
       initialYPos,
       imageSrc,
       initialRotataion,
+      elementId,
       0,
       PLAYER_CONFIG.initialSpeed
     );
