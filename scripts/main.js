@@ -1,5 +1,5 @@
 import {Player} from "./drawModels/player.js";
-
+import {Bullet} from "./drawModels/bullet.js";
 const GAME_CONFIG = {
   gameZoneId: "game-zone",
   fps: 1, // кадровая частота, для разработки удобнее 1, конечное желаемое значение это 50
@@ -60,4 +60,24 @@ function gameTick() {
     player1,
     player2,
   });
+}
+function newBulletFirstPlayer() {
+  nextBullet = new Bullet(
+    gameZoneEl,
+    player1.xPos,
+    player1.yPos,
+    "../../images/bullet.png",
+    player1.rotation
+  );
+  return nextBullet;
+}
+function newBulletSecondPlayer() {
+  nextBullet = new Bullet(
+    gameZoneEl,
+    player2.xPos,
+    player2.yPos,
+    "../../images/bullet.png",
+    player2.rotation
+  );
+  return nextBullet;
 }
