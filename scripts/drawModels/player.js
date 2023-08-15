@@ -46,4 +46,10 @@ export class Player extends DrawObject {
   stop() {
     this.speed = 0;
   }
+
+  shoot() {
+    const bullet = new Bullet();
+
+    return bullet;
+  }
 }

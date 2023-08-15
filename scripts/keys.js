@@ -5,14 +5,14 @@ let KEY_PENDING_ACTION_MAP;
 function prepareActionMap(player1, player2) {
   // Список одноразовых событии, как выстрел
   KEY_SINGLE_ACTION_MAP = {
-    W: () => player2.run(),
-    Ц: () => player2.run(),
-    S: () => player2.stop(),
-    Ы: () => player2.stop(),
-    ARROWUP: () => player1.run(),
-    ARROWDOWN: () => player1.stop(),
+    KeyW: () => player2.run(),
+    KeyS: () => player2.stop(),
+    KeyQ: () => player2.shoot(),
+    ArrowUp: () => player1.run(),
+    ArrowDown: () => player1.stop(),
+    Space: () => player1.shoot(),
   };
-  
+
   // длительных событии как бесконечный поворот
   KEY_PENDING_ACTION_MAP = {};
 }
@@ -20,8 +20,7 @@ function prepareActionMap(player1, player2) {
 export function handleKeysClicked() {
   Object.entries(KEY_PENDING_ACTION_MAP).forEach(([key, action]) => {
     const isKeyClicked =
-      keysClicked.findIndex((keyClicked) => keyClicked.toUpperCase() === key) >
-      -1;
+      keysClicked.findIndex((keyClicked) => keyClicked === key) > -1;
 
     if (isKeyClicked) {
       action();
@@ -39,7 +38,7 @@ function initKeys() {
     let keyIndex;
     // Sometimes it handled click twice, so we need to remove EACH remembered click
     while (
-      (keyIndex = keysClicked.findIndex((key) => key === event.key)) > -1
+      (keyIndex = keysClicked.findIndex((key) => key === event.code)) > -1
     ) {
       keysClicked.splice(keyIndex, 1);
     }
@@ -48,8 +47,8 @@ function initKeys() {
   document.addEventListener("keydown", (event) => {
     if (event.repeat) return;
 
-    if (KEY_SINGLE_ACTION_MAP[event.key.toUpperCase()]) {
-      KEY_SINGLE_ACTION_MAP[event.key.toUpperCase()]();
+    if (KEY_SINGLE_ACTION_MAP[event.code]) {
+      KEY_SINGLE_ACTION_MAP[event.code]();
     }
     keysClicked.push(event.key);
   });
