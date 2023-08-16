@@ -25,7 +25,6 @@ export class Bullet extends DrawObject {
       initialYPos,
       imageSrc,
       initialRotataion,
-      BULLET_CONFIG.initialSpeed,
       BULLET_CONFIG.initialSpeed
     );
   }

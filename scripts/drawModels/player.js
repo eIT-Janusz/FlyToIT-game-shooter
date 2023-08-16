@@ -27,12 +27,11 @@ export class Player extends DrawObject {
       initialYPos,
       imageSrc,
       initialRotataion,
-      0,
-      PLAYER_CONFIG.initialSpeed
+      0
     );
 
     this.name = name;
-    this.maxSpeed = PLAYER_CONFIG.initialSpeed;
+    this.maxSpeed = PLAYER_CONFIG.maxSpeed;
     this.points = 0;
   }
 

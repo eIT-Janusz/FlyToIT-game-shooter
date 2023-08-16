@@ -5,7 +5,7 @@ export const GAME_CONFIG = {
 };
 
 export const PLAYER_CONFIG = {
-  initialSpeed: 20 / GAME_CONFIG.fps,
+  maxSpeed: 20 / GAME_CONFIG.fps,
 };
 
 export const BULLET_CONFIG = {
