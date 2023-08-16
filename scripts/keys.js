@@ -2,6 +2,11 @@ const keysClicked = [];
 let KEY_SINGLE_ACTION_MAP;
 let KEY_PENDING_ACTION_MAP;
 
+/**
+ * 
+ * @param {import("./drawModels/player.js").Player} player1 
+ * @param {import("./drawModels/player.js").Player} player2 
+ */
 function prepareActionMap(player1, player2) {
   // Список одноразовых событии, как выстрел
   KEY_SINGLE_ACTION_MAP = {

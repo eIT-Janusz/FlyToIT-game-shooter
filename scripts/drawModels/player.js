@@ -21,14 +21,7 @@ export class Player extends DrawObject {
     initialRotataion,
     name
   ) {
-    super(
-      gameZoneEl,
-      initialXPos,
-      initialYPos,
-      imageSrc,
-      initialRotataion,
-      0
-    );
+    super(gameZoneEl, initialXPos, initialYPos, imageSrc, initialRotataion, 0);
 
     this.name = name;
     this.maxSpeed = PLAYER_CONFIG.maxSpeed;
@@ -43,8 +36,12 @@ export class Player extends DrawObject {
     this.speed = 0;
   }
 
-  changeRotation(rotationChange) {
-    this.rotation += rotationChange;
+  /**
+   * @description Задаёт паправление поворота.
+   * @param {number} rotationCoeficient Коефициент скорости поворота - умножается на базовую скорость поворота игрока. Положительные значения дл поворота на право, отрицательные Меньше 1 для медленного поворота, больше 1 для быстрого
+   */
+  changeRotation(rotationCoeficient) {
+    this.rotation += PLAYER_CONFIG.rotationSpeed * rotationCoeficient;
   }
 
   shoot() {
