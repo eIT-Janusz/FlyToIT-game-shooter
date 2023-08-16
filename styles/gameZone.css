@@ -1,0 +1,137 @@
+#game-zone {
+  background-color: rgb(26, 46, 46);
+  position: relative;
+}
+.top-part {
+  position: absolute;
+  top: 25px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+h1 {
+  font-family: quicksand;
+  font-size: 30px;
+  color: bisque;
+  min-width: 110px;
+}
+.check {
+  color: bisque;
+  text-align: center;
+}
+.scoreboard {
+  border: 1px solid;
+  color: bisque;
+  border-radius: 15%;
+  min-width: 60px;
+  max-height: 76px;
+  animation: colors 10s infinite linear;
+  text-align: center;
+}
+.part {
+  display: flex;
+}
+h2 {
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: -32px;
+
+  background-color: rgb(26, 46, 46);
+  font-family: quicksand;
+  color: bisque;
+}
+.check {
+  margin: 0;
+  position: relative;
+  font-size: 30px;
+  top: -35px;
+}
+.name {
+  margin-right: 20px;
+  font-size: 20px;
+  font-family: quicksand;
+  animation: colors 10s infinite linear;
+}
+@keyframes letter {
+  from {
+    top: 0px;
+    transform: rotateX(0deg);
+  }
+  7% {
+    top: -20px;
+    transform: rotateX(0deg);
+    display: inline-block;
+  }
+  25% {
+    top: -20px;
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+  40% {
+    top: -20px;
+    transform: rotate(360deg);
+  }
+  55% {
+    top: 0px;
+    transform: rotateX(360deg);
+  }
+  to {
+    top: 0px;
+    transform: rotateX(360deg);
+  }
+}
+.letter {
+  position: relative;
+  animation: letter 5s infinite linear;
+}
+@keyframes colors {
+  from {
+    color: bisque;
+  }
+  20% {
+    color: rgb(97, 181, 255);
+  }
+  40% {
+    color: rgb(255, 129, 129);
+  }
+  60% {
+    color: aquamarine;
+  }
+  80% {
+    color: rgb(226, 255, 62);
+  }
+  to {
+    color: bisque;
+  }
+}
+.star {
+  position: relative;
+  width: 20px;
+  height: 20px;
+
+  filter: blur(4px);
+  border-radius: 50%;
+
+  background-color: rgb(255, 255, 160);
+}
+#first-star {
+  top: 21%;
+  left: 35%;
+}
+#second-star {
+  top: 73%;
+  left: 16%;
+}
+#third-star {
+  top: 54%;
+  left: 87%;
+}
+#fourth-star {
+  top: 82%;
+  left: 54%;
+}
+#fifth-star {
+  top: 37%;
+  left: 69%;
+}

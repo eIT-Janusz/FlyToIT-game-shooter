@@ -4,11 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlyToIT - Game Shooter</title>
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
     <link href="./styles/core.css" rel="stylesheet" />
+    <link href="./styles/gameZone.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="game-zone"></div>
+    <div id="game-zone">
+      <div class="top-part">
+        <div class="part">
+          <p class="name">Player 1</p>
+          <div class="scoreboard">
+            <h2>очки</h2>
+            <p class="check">0</p>
+          </div>
+        </div>
+        <h1><span class="letter">F</span>lyToIT-game</h1>
+        <div class="part">
+          <p class="name">Player 2</p>
+          <div class="scoreboard">
+            <h2>очки</h2>
+            <p class="check">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="star" id="first-star"></div>
+      <div class="star" id="second-star"></div>
+      <div class="star" id="third-star"></div>
+      <div class="star" id="fourth-star"></div>
+      <div class="star" id="fifth-star"></div>
+    </div>
 
     <script src="./scripts/main.js" type="module"></script>
   </body>
