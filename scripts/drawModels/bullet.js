@@ -1,8 +1,5 @@
 import {DrawObject} from "./drawObjects.js";
-
-const BULLET_CONFIG = {
-  initialSpeed: 60,
-};
+import {BULLET_CONFIG} from "../config.js";
 
 export class Bullet extends DrawObject {
   constructor(gameZoneEl, initialXPos, initialYPos, imageSrc, initialRotataion) {

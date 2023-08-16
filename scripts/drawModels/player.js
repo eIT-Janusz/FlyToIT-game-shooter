@@ -1,8 +1,5 @@
 import {DrawObject} from "./drawObjects.js";
-
-const PLAYER_CONFIG = {
-  initialSpeed: 20,
-};
+import {PLAYER_CONFIG} from "../config.js";
 
 /**
  * Объект игрока
