@@ -8,7 +8,6 @@ export class DrawObject {
    * @param {string} imageSrc Ссылка на изображение объекта - должно быть правильным значением атрибута src тега img
    * @param {number} initialRotataion Направление объекта - градиус, 0 это вверх, 90 в право...
    * @param {number} initialSpeed Начальная скорость перемещения объекта
-   * @param {number} maxSpeed Максимальная скорость перемещения объекта
    */
   constructor(
     gameZoneEl,
@@ -16,8 +15,7 @@ export class DrawObject {
     initialYPos,
     imageSrc,
     initialRotataion,
-    initialSpeed,
-    maxSpeed
+    initialSpeed
   ) {
     this.xPos = initialXPos;
     this.yPos = initialYPos;
@@ -25,7 +23,6 @@ export class DrawObject {
     this.el = this.createHTMLElement(gameZoneEl, imageSrc);
 
     this.speed = initialSpeed;
-    this.maxSpeed = maxSpeed;
   }
 
   // TO BE IMPLEMENTED

@@ -1,9 +1,6 @@
 import {Player} from "./drawModels/player.js";
+import {GAME_CONFIG} from "./config.js";
 
-const GAME_CONFIG = {
-  gameZoneId: "game-zone",
-  fps: 1, // кадровая частота, для разработки удобнее 1, конечное желаемое значение это 50
-};
 let frameNumber = 0;
 let player1;
 let player2;
