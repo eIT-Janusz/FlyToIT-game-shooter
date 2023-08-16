@@ -50,6 +50,6 @@ function initKeys() {
     if (KEY_SINGLE_ACTION_MAP[event.code]) {
       KEY_SINGLE_ACTION_MAP[event.code]();
     }
-    keysClicked.push(event.key);
+    keysClicked.push(event.code);
   });
 }
