@@ -1,15 +1,15 @@
 #game-zone {
   background-color: rgb(26, 46, 46);
+  position: relative;
 }
 .top-part {
-  position: fixed;
+  position: absolute;
   top: 25px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 }
 h1 {
-  margin: 0 400px;
   font-family: quicksand;
   font-size: 30px;
   color: bisque;
@@ -20,11 +20,13 @@ h1 {
   text-align: center;
 }
 .scoreboard {
-  border: 1px solid bisque;
+  border: 1px solid;
   color: bisque;
   border-radius: 15%;
   min-width: 60px;
   max-height: 76px;
+  animation: colors 10s infinite linear;
+  text-align: center;
 }
 .part {
   display: flex;
@@ -34,9 +36,10 @@ h2 {
   display: inline-block;
   position: relative;
   top: -32px;
-  left: 8px;
+
   background-color: rgb(26, 46, 46);
   font-family: quicksand;
+  color: bisque;
 }
 .check {
   margin: 0;
@@ -113,22 +116,22 @@ h2 {
   background-color: rgb(255, 255, 160);
 }
 #first-star {
-  top: 218px;
-  left: 35px;
+  top: 21%;
+  left: 35%;
 }
 #second-star {
-  top: 427px;
-  left: 203px;
+  top: 73%;
+  left: 16%;
 }
 #third-star {
-  top: 75px;
-  left: 1207px;
+  top: 54%;
+  left: 87%;
 }
 #fourth-star {
-  top: 323px;
-  left: 835px;
+  top: 82%;
+  left: 54%;
 }
 #fifth-star {
-  top: 118px;
-  left: 535px;
+  top: 37%;
+  left: 69%;
 }
