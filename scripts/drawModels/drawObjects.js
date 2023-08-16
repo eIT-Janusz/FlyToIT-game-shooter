@@ -1,12 +1,15 @@
-/**
- * Общий объект который может быть размщенным в зоне игры
- * @param {HTMLElement} gameZoneEl Элемент HTML  в рамках которого продолжается игра
- * @param {number} initialXPos Initial X axis position of object
- * @param {number} initialYPos Direction of the player's view, degree. 0 is top, 90 is right...
- * @param {string} imageSrc Image's src to draw at objects position, must be a valid img's src attribute
- * @param {number} initialRotataion Direction of the object's view, degree. 0 is top, 90 is right...
- */
 export class DrawObject {
+  /**
+   * Общий объект который может быть размщенным в зоне игры
+   * @constructor
+   * @param {HTMLElement} gameZoneEl Элемент HTML  в рамках которого продолжается игра
+   * @param {number} initialXPos Началное положение объекта на горизонтальной оси X
+   * @param {number} initialYPos Началное положение объекта на вертикальной оси Y
+   * @param {string} imageSrc Ссылка на изображение объекта - должно быть правильным значением атрибута src тега img
+   * @param {number} initialRotataion Направление объекта - градиус, 0 это вверх, 90 в право...
+   * @param {number} initialSpeed Начальная скорость перемещения объекта
+   * @param {number} maxSpeed Максимальная скорость перемещения объекта
+   */
   constructor(
     gameZoneEl,
     initialXPos,
@@ -25,7 +28,7 @@ export class DrawObject {
     this.maxSpeed = maxSpeed;
   }
 
-  // TO BE IMPLEMENTED use image
+  // TO BE IMPLEMENTED
   createHTMLElement(gameZoneEl, imageSrc) {
     const el = document.createElement("img");
     el.src = imageSrc;
@@ -33,7 +36,7 @@ export class DrawObject {
     return el;
   }
 
-  // TO BE IMPLEMENTED use rotation
+  // TO BE IMPLEMENTED
   move(xChange, yChange) {
     this.xPos += xChange;
     this.yPos += yChange;
