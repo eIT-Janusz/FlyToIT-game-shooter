@@ -14,7 +14,12 @@ function prepareActionMap(player1, player2) {
   };
 
   // длительных событии как бесконечный поворот
-  KEY_PENDING_ACTION_MAP = {};
+  KEY_PENDING_ACTION_MAP = {
+    ArrowRight: () => { player1.changeRotation(1) },
+    ArrowLeft: () => { player1.changeRotation(-1) },
+    KeyD: () => { player2.changeRotation(1) },
+    KeyA: () => { player2.changeRotation(-1) },
+  };
 }
 
 export function handleKeysClicked() {
@@ -50,6 +55,6 @@ function initKeys() {
     if (KEY_SINGLE_ACTION_MAP[event.code]) {
       KEY_SINGLE_ACTION_MAP[event.code]();
     }
-    keysClicked.push(event.key);
+    keysClicked.push(event.code);
   });
 }

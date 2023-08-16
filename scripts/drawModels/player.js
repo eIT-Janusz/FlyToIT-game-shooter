@@ -47,6 +47,10 @@ export class Player extends DrawObject {
     this.speed = 0;
   }
 
+  changeRotation(rotationChange) {
+    this.rotation += rotationChange;
+  }
+
   shoot() {
     const bullet = new Bullet();
 

@@ -50,9 +50,9 @@ function gameTick() {
   player2.redraw();
 
   console.log(frameNumber, {
-    player1,
-    player2,
     player1S: player1.speed,
     player2S: player2.speed,
+    player1R: player1.rotation,
+    player2R: player2.rotation,
   });
 }
