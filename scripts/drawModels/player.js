@@ -38,7 +38,7 @@ export class Player extends DrawObject {
 
   /**
    * @description Задаёт паправление поворота.
-   * @param {number} rotationCoeficient Коефициент скорости поворота - умножается на базовую скорость поворота игрока. Положительные значения дл поворота на право, отрицательные Меньше 1 для медленного поворота, больше 1 для быстрого
+   * @param {number} rotationCoeficient Коефициент скорости поворота - умножается на базовую скорость поворота игрока. Положительные значения для поворота на право, отрицательные на лево. Меньше 1 для медленного поворота, больше 1 для быстрого
    */
   changeRotation(rotationCoeficient) {
     this.rotation += PLAYER_CONFIG.rotationSpeed * rotationCoeficient;
