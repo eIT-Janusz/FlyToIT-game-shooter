@@ -27,7 +27,6 @@ function initGame() {
     gameZone.height - 50,
     "/images/cowboyLookingRight.png",
     120,
-    "first_player",
     "Игрок 1"
   );
 
@@ -37,12 +36,9 @@ function initGame() {
     50,
     "/images/cowboyLookingLeft.png",
     300,
-    "second_player",
     "Игрок 2"
   );
 }
-player1.redraw();
-player2.redraw();
 
 function gameTick() {
   frameNumber++;

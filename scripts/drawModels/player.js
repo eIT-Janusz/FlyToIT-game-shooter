@@ -37,6 +37,8 @@ export class Player extends DrawObject {
     this.name = name;
     this.maxSpeed = PLAYER_CONFIG.initialSpeed;
     this.points = 0;
+
+    this.redraw();
   }
 
   run() {
