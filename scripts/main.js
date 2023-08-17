@@ -1,4 +1,5 @@
 import {Player} from "./drawModels/player.js";
+import {Bullet} from "./drawModels/bullet.js";
 import {prepareKeys, handleKeysClicked} from "./keys.js";
 import {GAME_CONFIG} from "./config.js";
 
@@ -17,15 +18,22 @@ function initGame() {
     width: gameZoneEl.getBoundingClientRect().width,
     height: gameZoneEl.getBoundingClientRect().height,
   };
-
+  console.log(gameZone.height, gameZone.width);
   // TODO: При создании игрока запросить его имя с помощью prompt, в дальнейшем красивой формы
-  player1 = new Player(gameZoneEl, 50, 50, "", 120, "Игрок 1");
+  player1 = new Player(
+    gameZoneEl,
+    50,
+    gameZone.height - 50,
+    "/images/cowboyLookingRight.png",
+    120,
+    "Игрок 1"
+  );
 
   player2 = new Player(
     gameZoneEl,
     gameZone.width - 50,
-    gameZone.height - 50,
-    "",
+    50,
+    "/images/cowboyLookingLeft.png",
     300,
     "Игрок 2"
   );
@@ -39,8 +47,8 @@ function gameTick() {
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
-  player1.move(2, 1);
-  player2.move(-3, 0);
+  player1.move(3, -2);
+  player2.move(-3, 1);
 
   // Перерисовывуем объекты на поле игры
   player1.redraw();
@@ -52,4 +60,24 @@ function gameTick() {
     player1S: player1.speed,
     player2S: player2.speed,
   });
+}
+function newBulletFirstPlayer() {
+  nextBullet = new Bullet(
+    gameZoneEl,
+    player1.xPos,
+    player1.yPos,
+    "/images/bullet.png",
+    player1.rotation
+  );
+  return nextBullet;
+}
+function newBulletSecondPlayer() {
+  nextBullet = new Bullet(
+    gameZoneEl,
+    player2.xPos,
+    player2.yPos,
+    "/images/bullet.png",
+    player2.rotation
+  );
+  return nextBullet;
 }

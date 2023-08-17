@@ -26,6 +26,8 @@ body {
 }
 
 .player {
+  max-height: 125px;
+  max-width: 125px;
 }
 
 .bullet {
