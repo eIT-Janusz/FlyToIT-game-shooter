@@ -21,11 +21,21 @@ export class Player extends DrawObject {
     initialRotataion,
     name
   ) {
-    super(gameZoneEl, initialXPos, initialYPos, imageSrc, initialRotataion, 0);
+    super(
+      gameZoneEl,
+      initialXPos,
+      initialYPos,
+      imageSrc,
+      "player",
+      initialRotataion,
+      0
+    );
 
     this.name = name;
     this.maxSpeed = PLAYER_CONFIG.maxSpeed;
     this.points = 0;
+
+    this.redraw();
   }
 
   run() {

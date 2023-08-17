@@ -14,25 +14,28 @@ export class DrawObject {
     initialXPos,
     initialYPos,
     imageSrc,
+    elClass,
     initialRotataion,
     initialSpeed
   ) {
     this.xPos = initialXPos;
     this.yPos = initialYPos;
     this.rotation = initialRotataion;
-    this.el = this.createHTMLElement(gameZoneEl, imageSrc);
-
+    this.el = this.createHTMLElement(gameZoneEl, imageSrc, elClass);
     this.speed = initialSpeed;
   }
 
   // TO BE IMPLEMENTED
-  createHTMLElement(gameZoneEl, imageSrc) {
+  createHTMLElement(gameZoneEl, imageSrc, elClass) {
     const el = document.createElement("img");
     el.src = imageSrc;
+    el.className = elClass;
     gameZoneEl.append(el);
     return el;
   }
-
+  getHTMLElement() {
+    return this.el;
+  }
   // TO BE IMPLEMENTED
   move(xChange, yChange) {
     this.xPos += xChange;
@@ -40,7 +43,7 @@ export class DrawObject {
   }
 
   redraw() {
-    this.el.style.left = this.xPos;
-    this.el.style.bottom = this.yPos;
+    this.el.style.left = this.xPos + "px";
+    this.el.style.bottom = this.yPos + "px";
   }
 }
