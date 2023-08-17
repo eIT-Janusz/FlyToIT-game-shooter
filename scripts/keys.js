@@ -2,6 +2,11 @@ const keysClicked = [];
 let KEY_SINGLE_ACTION_MAP;
 let KEY_PENDING_ACTION_MAP;
 
+/**
+ * 
+ * @param {import("./drawModels/player.js").Player} player1 
+ * @param {import("./drawModels/player.js").Player} player2 
+ */
 function prepareActionMap(player1, player2) {
   // Список одноразовых событии, как выстрел
   KEY_SINGLE_ACTION_MAP = {
@@ -14,7 +19,12 @@ function prepareActionMap(player1, player2) {
   };
 
   // длительных событии как бесконечный поворот
-  KEY_PENDING_ACTION_MAP = {};
+  KEY_PENDING_ACTION_MAP = {
+    ArrowRight: () => { player1.changeRotation(1) },
+    ArrowLeft: () => { player1.changeRotation(-1) },
+    KeyD: () => { player2.changeRotation(1) },
+    KeyA: () => { player2.changeRotation(-1) },
+  };
 }
 
 export function handleKeysClicked() {
