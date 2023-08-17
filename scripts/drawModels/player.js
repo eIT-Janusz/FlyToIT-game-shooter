@@ -21,7 +21,6 @@ export class Player extends DrawObject {
     initialYPos,
     imageSrc,
     initialRotataion,
-    elementId,
     name
   ) {
     super(
@@ -29,8 +28,8 @@ export class Player extends DrawObject {
       initialXPos,
       initialYPos,
       imageSrc,
+      "player",
       initialRotataion,
-      elementId,
       0,
       PLAYER_CONFIG.initialSpeed
     );
