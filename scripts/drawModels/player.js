@@ -1,8 +1,6 @@
 import {DrawObject} from "./drawObjects.js";
+import {PLAYER_CONFIG} from "../config.js";
 
-const PLAYER_CONFIG = {
-  initialSpeed: 20,
-};
 export class Player extends DrawObject {
   /**
    * Объект игрока
@@ -30,12 +28,11 @@ export class Player extends DrawObject {
       imageSrc,
       "player",
       initialRotataion,
-      0,
-      PLAYER_CONFIG.initialSpeed
+      0
     );
 
     this.name = name;
-    this.maxSpeed = PLAYER_CONFIG.initialSpeed;
+    this.maxSpeed = PLAYER_CONFIG.maxSpeed;
     this.points = 0;
 
     this.redraw();
@@ -47,5 +44,11 @@ export class Player extends DrawObject {
 
   stop() {
     this.speed = 0;
+  }
+
+  shoot() {
+    const bullet = new Bullet();
+
+    return bullet;
   }
 }

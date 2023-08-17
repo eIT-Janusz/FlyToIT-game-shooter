@@ -6,7 +6,7 @@ const BONUS_CONFIG = {
 
 export class Bonus extends DrawObject {
   constructor(gameZoneEl, initialXPos, initialYPos, image, initialRotataion, bonusType) {
-    super(gameZoneEl, initialXPos, initialYPos, image, initialRotataion, 0, 0);
+    super(gameZoneEl, initialXPos, initialYPos, image, initialRotataion, 0);
 
     this.bonusType = bonusType;
   }

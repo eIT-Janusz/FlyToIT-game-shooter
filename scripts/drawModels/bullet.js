@@ -1,8 +1,5 @@
 import {DrawObject} from "./drawObjects.js";
-
-const BULLET_CONFIG = {
-  initialSpeed: 60,
-};
+import {BULLET_CONFIG} from "../config.js";
 
 export class Bullet extends DrawObject {
   /**
@@ -29,7 +26,6 @@ export class Bullet extends DrawObject {
       imageSrc,
       "bullet",
       initialRotataion,
-      BULLET_CONFIG.initialSpeed,
       BULLET_CONFIG.initialSpeed
     );
   }
