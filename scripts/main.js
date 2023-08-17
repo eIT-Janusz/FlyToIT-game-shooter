@@ -25,7 +25,7 @@ function initGame() {
     gameZoneEl,
     50,
     gameZone.height - 50,
-    " ../../images/cowboyLookingRight.png",
+    "/images/cowboyLookingRight.png",
     120,
     "first_player",
     "Игрок 1"
@@ -35,16 +35,15 @@ function initGame() {
     gameZoneEl,
     gameZone.width - 50,
     50,
-    "../../images/cowboyLookingLeft.png",
+    "/images/cowboyLookingLeft.png",
     300,
     "second_player",
     "Игрок 2"
   );
 }
-const firstPlayer = document.getElementById("first_player");
-const secondPlayer = document.getElementById("second_player");
-firstPlayer.classList.add("player");
-secondPlayer.classList.add("player");
+player1.redraw();
+player2.redraw();
+
 function gameTick() {
   frameNumber++;
 
@@ -66,7 +65,7 @@ function newBulletFirstPlayer() {
     gameZoneEl,
     player1.xPos,
     player1.yPos,
-    "../../images/bullet.png",
+    "/images/bullet.png",
     player1.rotation
   );
   return nextBullet;
@@ -76,7 +75,7 @@ function newBulletSecondPlayer() {
     gameZoneEl,
     player2.xPos,
     player2.yPos,
-    "../../images/bullet.png",
+    "/images/bullet.png",
     player2.rotation
   );
   return nextBullet;
