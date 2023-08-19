@@ -45,5 +45,6 @@ export class DrawObject {
   redraw() {
     this.el.style.left = this.xPos + "px";
     this.el.style.bottom = this.yPos + "px";
+    this.el.style.transform = "rotate(" + this.rotation + "deg)";
   }
 }
