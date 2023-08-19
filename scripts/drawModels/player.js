@@ -1,6 +1,6 @@
 import {DrawObject} from "./drawObjects.js";
 import {PLAYER_CONFIG} from "../config.js";
-
+import {Bullet} from "./bullet.js";
 export class Player extends DrawObject {
   /**
    * Объект игрока
@@ -45,6 +45,19 @@ export class Player extends DrawObject {
   stop() {
     this.speed = 0;
   }
+  shoot() {
+    this.bullet = new Bullet(
+      this.gameZoneEl,
+      this.xPos,
+      this.yPos,
+      "/images/bullet.png",
+      this.rotation
+    );
+
+    this.bullet.redraw();
+
+    return Bullet;
+  }
 
   /**
    * @description Задаёт паправление поворота.
@@ -52,11 +65,5 @@ export class Player extends DrawObject {
    */
   changeRotation(rotationCoeficient) {
     this.rotation += PLAYER_CONFIG.rotationSpeed * rotationCoeficient;
-  }
-
-  shoot() {
-    const bullet = new Bullet();
-
-    return bullet;
   }
 }

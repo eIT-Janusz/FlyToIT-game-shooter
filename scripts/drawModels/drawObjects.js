@@ -22,6 +22,7 @@ export class DrawObject {
     this.yPos = initialYPos;
     this.rotation = initialRotataion;
     this.el = this.createHTMLElement(gameZoneEl, imageSrc, elClass);
+    this.gameZoneEl = gameZoneEl;
     this.speed = initialSpeed;
   }
 

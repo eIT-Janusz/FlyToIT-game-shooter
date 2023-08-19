@@ -44,6 +44,15 @@ function initGame() {
 function gameTick() {
   frameNumber++;
 
+  // эта функция у Антона в branch
+  player1.bullet.move(
+    Math.cos(degToRadians(-(player1.bullet.rotation - 90))) *
+      player1.bullet.speed,
+    Math.sin(degToRadians(-(player1.bullet.rotation - 90))) *
+      player1.bullet.speed
+  );
+
+  player1.bullet.redraw();
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
