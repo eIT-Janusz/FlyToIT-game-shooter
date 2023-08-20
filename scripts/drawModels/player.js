@@ -37,9 +37,8 @@ export class Player extends DrawObject {
 
     this.redraw();
   }
-
-  run() {
-    this.speed = this.maxSpeed;
+  run(moovingCoeficient) {
+    this.speed = this.maxSpeed * moovingCoeficient;
   }
 
   stop() {
