@@ -46,14 +46,8 @@ function gameTick() {
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
-  player1.move(
-    Math.cos(degToRadians(-(player1.rotation - 90))) * player1.speed,
-    Math.sin(degToRadians(-(player1.rotation - 90))) * player1.speed
-  );
-  player2.move(
-    Math.cos(degToRadians(-(player2.rotation - 90))) * player2.speed,
-    Math.sin(degToRadians(-(player2.rotation - 90))) * player2.speed
-  );
+  player1.move();
+  player2.move();
 
   // Перерисовывуем объекты на поле игры
   player1.redraw();

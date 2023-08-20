@@ -37,9 +37,9 @@ export class DrawObject {
     return this.el;
   }
   // TO BE IMPLEMENTED
-  move(xChange, yChange) {
-    this.xPos += xChange;
-    this.yPos += yChange;
+  move() {
+    this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
+    this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
   }
 
   redraw() {
