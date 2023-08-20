@@ -1,3 +1,5 @@
+import { GAME_CONFIG } from "./config.js";
+
 const keysClicked = [];
 let KEY_SINGLE_ACTION_MAP;
 let KEY_PENDING_ACTION_MAP;
@@ -13,6 +15,7 @@ function prepareActionMap(player1, player2) {
     KeyW: () => player2.run(),
     KeyS: () => player2.stop(),
     KeyQ: () => player2.shoot(),
+    KeyP: () => GAME_CONFIG.isPause = !GAME_CONFIG.isPause,
     ArrowUp: () => player1.run(),
     ArrowDown: () => player1.stop(),
     Space: () => player1.shoot(),
