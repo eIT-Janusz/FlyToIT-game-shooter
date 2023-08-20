@@ -3,7 +3,7 @@ import {BULLET_CONFIG} from "../config.js";
 
 export class Bullet extends DrawObject {
   /**
-   * Объект игрока
+   * Объект пули
    * @extends DrawObject
    * @constructor
    * @param {HTMLElement} gameZoneEl Элемент HTML в рамках которого продолжается игра
