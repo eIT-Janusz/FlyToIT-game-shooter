@@ -41,6 +41,9 @@ function initGame() {
 }
 
 function gameTick() {
+  if (GAME_CONFIG.isPause) {
+    return;
+  }
   frameNumber++;
 
   handleKeysClicked();

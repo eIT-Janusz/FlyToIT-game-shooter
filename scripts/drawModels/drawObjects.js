@@ -25,7 +25,6 @@ export class DrawObject {
     this.speed = initialSpeed;
   }
 
-  // TO BE IMPLEMENTED
   createHTMLElement(gameZoneEl, imageSrc, elClass) {
     const el = document.createElement("img");
     el.src = imageSrc;
@@ -36,7 +35,7 @@ export class DrawObject {
   getHTMLElement() {
     return this.el;
   }
-  // TO BE IMPLEMENTED
+
   move() {
     this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
     this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
