@@ -3,27 +3,35 @@ let KEY_SINGLE_ACTION_MAP;
 let KEY_PENDING_ACTION_MAP;
 
 /**
- * 
- * @param {import("./drawModels/player.js").Player} player1 
- * @param {import("./drawModels/player.js").Player} player2 
+ *
+ * @param {import("./drawModels/player.js").Player} player1
+ * @param {import("./drawModels/player.js").Player} player2
  */
 function prepareActionMap(player1, player2) {
-  // Список одноразовых событии, как выстрел
+  // Список одноразовых событий, как выстрел
   KEY_SINGLE_ACTION_MAP = {
-    KeyW: () => player2.run(),
-    KeyS: () => player2.stop(),
-    KeyQ: () => player2.shoot(),
-    ArrowUp: () => player1.run(),
-    ArrowDown: () => player1.stop(),
     Space: () => player1.shoot(),
+    KeyQ: () => player2.shoot(),
   };
 
-  // длительных событии как бесконечный поворот
+  // список длительных событий, как бесконечный поворот
   KEY_PENDING_ACTION_MAP = {
-    ArrowRight: () => { player1.changeRotation(1) },
-    ArrowLeft: () => { player1.changeRotation(-1) },
-    KeyD: () => { player2.changeRotation(1) },
-    KeyA: () => { player2.changeRotation(-1) },
+    ArrowUp: () => player1.run(1),
+    ArrowDown: () => player1.run(-1),
+    ArrowRight: () => {
+      player1.changeRotation(1);
+    },
+    ArrowLeft: () => {
+      player1.changeRotation(-1);
+    },
+    KeyW: () => player2.run(1),
+    KeyS: () => player2.run(-1),
+    KeyD: () => {
+      player2.changeRotation(1);
+    },
+    KeyA: () => {
+      player2.changeRotation(-1);
+    },
   };
 }
 
