@@ -12,21 +12,16 @@ export class Bullet extends DrawObject {
    * @param {string} imageSrc Ссылка на изображение пули - должно быть правильным значением атрибута src тега img
    * @param {number} initialRotataion Направление пули - градиус, 0 это вверх, 90 в право...
    */
-  constructor(
-    gameZoneEl,
-    initialXPos,
-    initialYPos,
-    imageSrc,
-    initialRotataion
-  ) {
+  constructor(gameZoneEl, initialXPos, initialYPos, initialRotataion) {
     super(
       gameZoneEl,
       initialXPos,
       initialYPos,
-      imageSrc,
+      "/images/bullet.png",
       "bullet",
       initialRotataion,
       BULLET_CONFIG.speed
     );
+    this.redraw();
   }
 }
