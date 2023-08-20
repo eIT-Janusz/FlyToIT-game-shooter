@@ -1,8 +1,7 @@
 import {Player} from "./drawModels/player.js";
 import {Bullet} from "./drawModels/bullet.js";
 import {prepareKeys, handleKeysClicked} from "./keys.js";
-import {GAME_CONFIG} from "./config.js";
-
+import {GAME_CONFIG, PLAYER_CONFIG} from "./config.js";
 let frameNumber = 0;
 let player1;
 let player2;
@@ -24,8 +23,8 @@ function initGame() {
     gameZoneEl,
     50,
     gameZone.height - 50,
-    "/images/cowboyLookingRight.png",
-    120,
+    "/images/zgiguli.png",
+    135,
     "Игрок 1"
   );
 
@@ -33,8 +32,8 @@ function initGame() {
     gameZoneEl,
     gameZone.width - 50,
     50,
-    "/images/cowboyLookingLeft.png",
-    300,
+    "/images/zgiguli.png",
+    -45,
     "Игрок 2"
   );
 
@@ -56,8 +55,8 @@ function gameTick() {
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
-  player1.move(3, -2);
-  player2.move(-3, 1);
+  player1.move();
+  player2.move();
 
   // Перерисовывуем объекты на поле игры
   player1.redraw();

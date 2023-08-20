@@ -38,13 +38,14 @@ export class DrawObject {
     return this.el;
   }
   // TO BE IMPLEMENTED
-  move(xChange, yChange) {
-    this.xPos += xChange;
-    this.yPos += yChange;
+  move() {
+    this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
+    this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
   }
 
   redraw() {
     this.el.style.left = this.xPos + "px";
     this.el.style.bottom = this.yPos + "px";
+    this.el.style.transform = "rotate(" + this.rotation + "deg)";
   }
 }
