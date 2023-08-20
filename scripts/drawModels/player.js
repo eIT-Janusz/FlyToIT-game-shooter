@@ -40,7 +40,6 @@ export class Player extends DrawObject {
   run() {
     this.speed = this.maxSpeed;
   }
-
   stop() {
     this.speed = 0;
   }
@@ -49,9 +48,7 @@ export class Player extends DrawObject {
       this.gameZoneEl,
       this.xPos,
       this.yPos,
-      ["/images/bullet.png"],
-      this.rotation,
-      this.redraw()
+      this.rotation
     );
   }
   /**
