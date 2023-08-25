@@ -43,8 +43,15 @@ function initGame() {
 
 function gameTick() {
   frameNumber++;
-  if (player1.bullet || player2.bullet) player1.bullet.redraw();
-  player2.bullet.redraw();
+  if (player1.bullet) {
+    player1.bullet.redraw();
+    player1.bullet.move();
+  }
+  if (player2.bullet) {
+    player2.bullet.redraw();
+    player1.bullet.move();
+  }
+
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
