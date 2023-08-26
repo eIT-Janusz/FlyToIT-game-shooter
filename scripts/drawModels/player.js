@@ -1,5 +1,7 @@
 import {DrawObject} from "./drawObjects.js";
 import {PLAYER_CONFIG} from "../config.js";
+import {Bullet} from "./bullet.js";
+
 export class Player extends DrawObject {
   /**
    * Объект игрока
@@ -29,7 +31,6 @@ export class Player extends DrawObject {
       initialRotataion,
       0
     );
-
     this.name = name;
     this.maxSpeed = PLAYER_CONFIG.maxSpeed;
     this.points = 0;
@@ -40,22 +41,22 @@ export class Player extends DrawObject {
   run() {
     this.speed = this.maxSpeed;
   }
-
   stop() {
     this.speed = 0;
   }
-
+  shoot() {
+    this.bullet = new Bullet(
+      this.gameZoneEl,
+      this.xPos,
+      this.yPos,
+      this.rotation
+    );
+  }
   /**
    * @description Задаёт паправление поворота.
    * @param {number} rotationCoeficient Коефициент скорости поворота - умножается на базовую скорость поворота игрока. Положительные значения для поворота на право, отрицательные на лево. Меньше 1 для медленного поворота, больше 1 для быстрого
    */
   changeRotation(rotationCoeficient) {
     this.rotation += PLAYER_CONFIG.rotationSpeed * rotationCoeficient;
-  }
-
-  shoot() {
-    const bullet = new Bullet();
-
-    return bullet;
   }
 }
