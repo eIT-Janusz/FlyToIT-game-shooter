@@ -50,7 +50,7 @@ function gameTick() {
     player1.bullet.redraw();
   }
   if (player2.bullet) {
-    player1.bullet.move();
+    player2.bullet.move();
     player2.bullet.redraw();
   }
 
