@@ -45,8 +45,15 @@ function gameTick() {
     return;
   }
   frameNumber++;
+  if (player1.bullet) {
+    player1.bullet.redraw();
+    player1.bullet.move();
+  }
+  if (player2.bullet) {
+    player2.bullet.redraw();
+    player1.bullet.move();
+  }
 
-  player1.bullet.redraw();
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
