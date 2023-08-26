@@ -1,6 +1,7 @@
 import {DrawObject} from "./drawObjects.js";
 import {PLAYER_CONFIG} from "../config.js";
 import {Bullet} from "./bullet.js";
+
 export class Player extends DrawObject {
   /**
    * Объект игрока
@@ -11,7 +12,7 @@ export class Player extends DrawObject {
    * @param {number} initialYPos Началное положение игрока на вертикальной оси Y
    * @param {string} imageSrc Ссылка на изображение игрока - должно быть правильным значением атрибута src тега img
    * @param {number} initialRotataion Направление игрока - градиус, 0 это вверх, 90 в право...
-   * @param {string} name Название итрока
+   * @param {string} name Название игрока
    */
   constructor(
     gameZoneEl,

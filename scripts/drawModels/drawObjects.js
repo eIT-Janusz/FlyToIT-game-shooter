@@ -1,3 +1,4 @@
+import {degToRadians} from "../someMath.js";
 export class DrawObject {
   /**
    * Общий объект который может быть размщенным в зоне игры
@@ -45,6 +46,7 @@ export class DrawObject {
   redraw() {
     this.el.style.left = this.xPos + "px";
     this.el.style.bottom = this.yPos + "px";
-    this.el.style.transform = "rotate(" + this.rotation + "deg)";
+    this.el.style.transform =
+      "translateX(-50%) translateY(50%) rotate(" + this.rotation + "deg)";
   }
 }
