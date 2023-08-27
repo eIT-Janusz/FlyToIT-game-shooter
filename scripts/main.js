@@ -1,7 +1,7 @@
 import {Player} from "./drawModels/player.js";
-import {Bullet} from "./drawModels/bullet.js";
 import {prepareKeys, handleKeysClicked} from "./keys.js";
-import {GAME_CONFIG, PLAYER_CONFIG} from "./config.js";
+import {GAME_CONFIG} from "./config.js";
+
 let frameNumber = 0;
 let player1;
 let player2;
@@ -45,6 +45,7 @@ function gameTick() {
     return;
   }
   frameNumber++;
+
   if (player1.bullet) {
     player1.bullet.move();
     player1.bullet.redraw();

@@ -28,6 +28,7 @@ body {
 .player {
   max-height: 75px;
   max-width: 75px;
+  z-index: 10;
 }
 
 .bullet {
