@@ -71,23 +71,3 @@ function gameTick() {
     player2R: player2.rotation,
   });
 }
-function newBulletFirstPlayer() {
-  nextBullet = new Bullet(
-    gameZoneEl,
-    player1.xPos,
-    player1.yPos,
-    "/images/bullet.png",
-    player1.rotation
-  );
-  return nextBullet;
-}
-function newBulletSecondPlayer() {
-  nextBullet = new Bullet(
-    gameZoneEl,
-    player2.xPos,
-    player2.yPos,
-    "/images/bullet.png",
-    player2.rotation
-  );
-  return nextBullet;
-}
