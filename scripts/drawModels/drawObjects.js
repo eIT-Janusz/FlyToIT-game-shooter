@@ -37,10 +37,21 @@ export class DrawObject {
   getHTMLElement() {
     return this.el;
   }
-
-  move() {
+  collisionWithZoneBorders() {
+    this.speed = 0;
+  }
+  move(movingPeculiarity) {
     this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
     this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
+    if (
+      this.xPos <= 0 ||
+      this.xPos >= 1351 ||
+      this.yPos <= 0 ||
+      this.yPos >= 291
+    ) {
+      movingPeculiarity();
+      console.log("kfkfk");
+    }
   }
 
   redraw() {

@@ -58,8 +58,8 @@ function gameTick() {
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
-  player1.move();
-  player2.move();
+  player1.move(player1.collisionWithZoneBorders());
+  player2.move(player2.collisionWithZoneBorders());
 
   // Перерисовывуем объекты на поле игры
   player1.redraw();
