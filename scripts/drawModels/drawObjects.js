@@ -37,23 +37,24 @@ export class DrawObject {
   getHTMLElement() {
     return this.el;
   }
-  collisionWithZoneBorders() {
-    this.speed = 0;
-  }
-  move(movingPeculiarity) {
+
+  moveHelper(movingPeculiarity) {
     this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
     this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
     if (
-      this.xPos <= 0 ||
-      this.xPos >= 1351 ||
-      this.yPos <= 0 ||
-      this.yPos >= 291
+      this.xPos <= 36 ||
+      this.xPos >= calc(100% - 20px) ||
+      this.yPos <= 36 ||
+      this.yPos >= calc(100% - 20px)
     ) {
       movingPeculiarity();
-      console.log("kfkfk");
     }
   }
-
+  move() {
+    this.moveHelper(() => {
+      this.speed = 0;
+    });
+  }
   redraw() {
     this.el.style.left = this.xPos + "px";
     this.el.style.bottom = this.yPos + "px";
