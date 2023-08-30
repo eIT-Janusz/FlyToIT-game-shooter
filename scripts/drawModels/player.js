@@ -48,10 +48,6 @@ export class Player extends DrawObject {
     this.bullet = this.bullets.push(
       new Bullet(this.gameZoneEl, this.xPos, this.yPos, this.rotation)
     );
-    this.bullets.forEach((bullet) => {
-      bullet.move();
-      bullet.redraw();
-    });
   }
 
   /**
