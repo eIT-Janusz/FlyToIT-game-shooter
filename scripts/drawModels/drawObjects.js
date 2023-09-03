@@ -1,5 +1,5 @@
 import {degToRadians} from "../someMath.js";
-import {gameZoneEl, gameZone} from "../main.js";
+import {gameZone} from "../main.js";
 export class DrawObject {
   /**
    * Общий объект который может быть размщенным в зоне игры
@@ -48,9 +48,9 @@ export class DrawObject {
     const yPosMove = Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
     if (
       this.xPos + xPosMove <= this.radius ||
-      this.xPos + xPosMove >= this.gameZoneHeight - this.radius ||
+      this.xPos + xPosMove >= this.gameZoneWidth - this.radius ||
       this.yPos + yPosMove <= this.radius ||
-      this.yPos + yPosMove >= this.gameZoneWidth - this.radius
+      this.yPos + yPosMove >= this.gameZoneHeight - this.radius
     ) {
       movingPeculiarity();
       return;
