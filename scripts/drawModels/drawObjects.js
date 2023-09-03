@@ -1,4 +1,5 @@
 import {degToRadians} from "../someMath.js";
+import {gameZoneEl, gameZone} from "../main.js";
 export class DrawObject {
   /**
    * Общий объект который может быть размщенным в зоне игры
@@ -17,14 +18,18 @@ export class DrawObject {
     imageSrc,
     elClass,
     initialRotataion,
-    initialSpeed
+    initialSpeed,
+    radius
   ) {
     this.xPos = initialXPos;
     this.yPos = initialYPos;
     this.rotation = initialRotataion;
     this.el = this.createHTMLElement(gameZoneEl, imageSrc, elClass);
     this.gameZoneEl = gameZoneEl;
+    this.gameZoneWidth = gameZone.width;
+    this.gameZoneHeight = gameZone.height;
     this.speed = initialSpeed;
+    this.radius = radius;
   }
 
   createHTMLElement(gameZoneEl, imageSrc, elClass) {
@@ -42,10 +47,10 @@ export class DrawObject {
     this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
     this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
     if (
-      this.xPos <= 36 ||
-      this.xPos >= calc(100% - 20px) ||
-      this.yPos <= 36 ||
-      this.yPos >= calc(100% - 20px)
+      this.xPos <= this.radius ||
+      this.xPos >= this.gameZoneHeight - this.radius ||
+      this.yPos <= this.radius ||
+      this.yPos >= this.gameZoneWidth - this.radius
     ) {
       movingPeculiarity();
     }
