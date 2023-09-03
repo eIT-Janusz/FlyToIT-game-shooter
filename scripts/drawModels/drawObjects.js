@@ -1,4 +1,5 @@
 import {degToRadians} from "../someMath.js";
+import {gameZone} from "../main.js";
 export class DrawObject {
   /**
    * Общий объект который может быть размщенным в зоне игры
@@ -17,14 +18,18 @@ export class DrawObject {
     imageSrc,
     elClass,
     initialRotataion,
-    initialSpeed
+    initialSpeed,
+    radius
   ) {
     this.xPos = initialXPos;
     this.yPos = initialYPos;
     this.rotation = initialRotataion;
     this.el = this.createHTMLElement(gameZoneEl, imageSrc, elClass);
     this.gameZoneEl = gameZoneEl;
+    this.gameZoneWidth = gameZone.width;
+    this.gameZoneHeight = gameZone.height;
     this.speed = initialSpeed;
+    this.radius = radius;
   }
 
   createHTMLElement(gameZoneEl, imageSrc, elClass) {
@@ -38,11 +43,26 @@ export class DrawObject {
     return this.el;
   }
 
-  move() {
-    this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
-    this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
+  moveHelper(movingPeculiarity) {
+    const xPosMove = Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
+    const yPosMove = Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
+    if (
+      this.xPos + xPosMove <= this.radius ||
+      this.xPos + xPosMove >= this.gameZoneWidth - this.radius ||
+      this.yPos + yPosMove <= this.radius ||
+      this.yPos + yPosMove >= this.gameZoneHeight - this.radius
+    ) {
+      movingPeculiarity();
+      return;
+    }
+    this.xPos += xPosMove;
+    this.yPos += yPosMove;
   }
-
+  move() {
+    this.moveHelper(() => {
+      this.speed = 0;
+    });
+  }
   redraw() {
     this.el.style.left = this.xPos + "px";
     this.el.style.bottom = this.yPos + "px";

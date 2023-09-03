@@ -29,7 +29,8 @@ export class Player extends DrawObject {
       imageSrc,
       "player",
       initialRotataion,
-      0
+      0,
+      37.5
     );
     this.name = name;
     this.maxSpeed = PLAYER_CONFIG.maxSpeed;

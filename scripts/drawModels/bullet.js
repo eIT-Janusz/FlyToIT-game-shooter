@@ -20,7 +20,8 @@ export class Bullet extends DrawObject {
       "/images/bullet.png",
       "bullet",
       initialRotataion,
-      BULLET_CONFIG.speed
+      BULLET_CONFIG.speed,
+      12.5
     );
     this.redraw();
   }
