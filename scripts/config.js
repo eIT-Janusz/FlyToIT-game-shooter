@@ -6,9 +6,9 @@ export const GAME_CONFIG = {
 
 export const PLAYER_CONFIG = {
   maxSpeed: 40 / GAME_CONFIG.fps, // 40 пикселей в секунду
-  rotationSpeed: 30 / GAME_CONFIG.fps, // 30 градусов в секунду
+  rotationSpeed: 50 / GAME_CONFIG.fps, // 50 градусов в секунду
 };
 
 export const BULLET_CONFIG = {
-  speed: 120 / GAME_CONFIG.fps, // 120 пикселей в секунду
+  speed: 500 / GAME_CONFIG.fps, // 500 пикселей в секунду
 };
