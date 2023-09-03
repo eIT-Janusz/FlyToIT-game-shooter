@@ -44,16 +44,19 @@ export class DrawObject {
   }
 
   moveHelper(movingPeculiarity) {
-    this.xPos += Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
-    this.yPos += Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
+    const xPosMove = Math.cos(degToRadians(-(this.rotation - 90))) * this.speed;
+    const yPosMove = Math.sin(degToRadians(-(this.rotation - 90))) * this.speed;
     if (
-      this.xPos <= this.radius ||
-      this.xPos >= this.gameZoneHeight - this.radius ||
-      this.yPos <= this.radius ||
-      this.yPos >= this.gameZoneWidth - this.radius
+      this.xPos + xPosMove <= this.radius ||
+      this.xPos + xPosMove >= this.gameZoneHeight - this.radius ||
+      this.yPos + yPosMove <= this.radius ||
+      this.yPos + yPosMove >= this.gameZoneWidth - this.radius
     ) {
       movingPeculiarity();
+      return;
     }
+    this.xPos += xPosMove;
+    this.yPos += yPosMove;
   }
   move() {
     this.moveHelper(() => {
