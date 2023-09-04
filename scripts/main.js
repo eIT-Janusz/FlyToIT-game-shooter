@@ -1,4 +1,5 @@
 import {Player} from "./drawModels/player.js";
+import {Bonus, bonusTypesDetermination} from "./drawModels/bonus.js";
 import {prepareKeys, handleKeysClicked} from "./keys.js";
 import {GAME_CONFIG} from "./config.js";
 
@@ -12,7 +13,7 @@ export const gameZone = {
 };
 initGame();
 setInterval(gameTick, 1000 / GAME_CONFIG.fps);
-
+setInterval(bonusAppears, 15000);
 function initGame() {
   // TODO: Реализовать начальный запуск и настройки игры
 
@@ -45,14 +46,15 @@ function gameTick() {
   }
   frameNumber++;
 
-  player1.bullets.forEach((bullet) => {
-    bullet.move();
-    bullet.redraw();
-  });
-  player2.bullets.forEach((bullet) => {
-    bullet.move();
-    bullet.redraw();
-  });
+  if (player1.bullet) {
+    player1.bullet.move();
+    player1.bullet.redraw();
+  }
+  if (player2.bullet) {
+    player2.bullet.move();
+    player2.bullet.redraw();
+  }
+
   handleKeysClicked();
 
   // Запускаем пересчеты расположения
@@ -62,4 +64,11 @@ function gameTick() {
   // Перерисовывуем объекты на поле игры
   player1.redraw();
   player2.redraw();
+}
+function bonusAppears() {
+  new Bonus(
+    gameZoneEl,
+    "/images/randomBonus.png",
+    bonusTypesDetermination
+  ).redraw();
 }
