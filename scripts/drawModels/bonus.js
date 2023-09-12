@@ -3,9 +3,25 @@ import {DrawObject} from "./drawObjects.js";
 const BONUS_CONFIG = {
   speed_up: 2,
 };
+const xPosCalculation = () => {
+  let horisonPos;
+  horisonPos = (gameZone.width + 1) * Math.random();
+  if (horisonPos > gameZone.width) {
+    Math.floor(horisonPos);
+  }
+  return horisonPos;
+};
+const yPosCalculation = () => {
+  let verticalPos;
+  verticalPos = (gameZone.height + 1) * Math.random();
+  if (verticalPos > gameZone.height) {
+    Math.floor(verticalPos);
+  }
+  return verticalPos;
+};
 
 export class Bonus extends DrawObject {
-  constructor(gameZoneEl, imageSrc, bonusType) {
+  constructor(gameZoneEl, imageSrc) {
     super(
       gameZoneEl,
       xPosCalculation(),
@@ -16,7 +32,7 @@ export class Bonus extends DrawObject {
       0,
       15
     );
-    this.bonusType = bonusType;
+    this.bonusType = this.bonusTypesDetermination();
   }
 
   applyBonus(player) {
@@ -26,22 +42,10 @@ export class Bonus extends DrawObject {
         break;
     }
   }
+  bonusTypesDetermination() {
+    bonusTypes = ["speed_up", "faster_reloading"];
+    const maxIndex = bonusTypes.length - 1;
+    const chosenInd = Math.floor(Math.random() * maxIndex);
+    return bonusTypes[chosenInd];
+  }
 }
-const xPosCalculation = () => {
-  let horisonPos;
-  do horisonPos = (gameZone.width + 1) * Math.random();
-  while (horisonPos > gameZone.width);
-  return horisonPos;
-};
-const yPosCalculation = () => {
-  let verticalPos;
-  do verticalPos = (gameZone.height + 1) * Math.random();
-  while (verticalPos > gameZone.height);
-  return verticalPos;
-};
-export const bonusTypesDetermination = () => {
-  bonusTypes = ["speed_up", "faster_reloading"];
-  const maxIndex = bonusTypes.length - 1;
-  const chosenInd = Math.floor(Math.random() * maxIndex);
-  return bonusTypes[chosenInd];
-};
