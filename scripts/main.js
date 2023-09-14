@@ -62,19 +62,19 @@ function gameTick() {
   // Перерисовывуем объекты на поле игры
   player1.redraw();
   player2.redraw();
-  bulletThitControl();
+  bulletHitControl();
 }
 
-function bulletThitControl() {
+function bulletHitControl() {
   player1.bullets.forEach((bullet) => {
-    control(player2, bullet);
+    bulletsHitControl(player2, bullet);
   });
 
   player2.bullets.forEach((bullet) => {
-    control(player1, bullet);
+    bulletsHitControl(player1, bullet);
   });
 }
-function control(player, bullet) {
+function bulletsHitControl(player, bullet) {
   let xDistanceBulletPlayer = Math.abs(player.xPos - bullet.xPos);
   let yDistanceBulletPlayer = Math.abs(player.yPos - bullet.yPos);
   const distancesHypotenuse = Math.sqrt(
