@@ -1,4 +1,5 @@
 import {Player} from "./drawModels/player.js";
+import {Bonus} from "./drawModels/bonus.js";
 import {prepareKeys, handleKeysClicked} from "./keys.js";
 import {GAME_CONFIG} from "./config.js";
 
@@ -12,7 +13,7 @@ export const gameZone = {
 };
 initGame();
 setInterval(gameTick, 1000 / GAME_CONFIG.fps);
-
+setInterval(bonusAppears, 15000);
 function initGame() {
   // TODO: Реализовать начальный запуск и настройки игры
 
@@ -83,4 +84,7 @@ function bulletsHitControl(player, bullet) {
   if (distancesHypotenuse <= player.radius + bullet.radius) {
     console.log("Ты попал");
   }
+}
+function bonusAppears() {
+  new Bonus(gameZoneEl, "/images/randomBonus.png").redraw();
 }
