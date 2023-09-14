@@ -62,4 +62,25 @@ function gameTick() {
   // Перерисовывуем объекты на поле игры
   player1.redraw();
   player2.redraw();
+  bulletHitControl();
+}
+
+function bulletHitControl() {
+  player1.bullets.forEach((bullet) => {
+    bulletsHitControl(player2, bullet);
+  });
+
+  player2.bullets.forEach((bullet) => {
+    bulletsHitControl(player1, bullet);
+  });
+}
+function bulletsHitControl(player, bullet) {
+  let xDistanceBulletPlayer = Math.abs(player.xPos - bullet.xPos);
+  let yDistanceBulletPlayer = Math.abs(player.yPos - bullet.yPos);
+  const distancesHypotenuse = Math.sqrt(
+    Math.pow(xDistanceBulletPlayer, 2) + Math.pow(yDistanceBulletPlayer, 2)
+  );
+  if (distancesHypotenuse <= player.radius + bullet.radius) {
+    console.log("Ты попал");
+  }
 }
